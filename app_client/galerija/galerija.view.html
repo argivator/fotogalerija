@@ -1,0 +1,27 @@
+<div class="container">
+  <nav class="navbar navbar-dark bg-light navigationClass">
+   <span class="navbar-brand mb-0 h1 navigationLogo">Fotogalerija</span>
+  </nav>
+  <div class="galerija_container">
+            <div class="main-img">
+              <img ng-src="data:image/JPEG;base64,{{vm.image}}" id="current">
+            </div>
+          
+            <div id="imgs">
+              <img ng-src="data:image/JPEG;base64,{{vm.image}}">
+              <img ng-src="data:image/JPEG;base64,{{vm.image2}}">
+            </div>
+          </div>
+          
+
+          <!-- TO ŠE NE DELUJE
+          <form ref='uploadForm' 
+            id='uploadForm' 
+            action='/api/slika/5ac8975b1274f014dec92d63' 
+            method='post' 
+            encType="multipart/form-data">
+              <input type="file" name="slika" />
+              <input type='submit' value='Upload!' />
+          </form>     
+          -->
+</div>
