@@ -6,17 +6,47 @@
         vm.images = [];
 
         const current = document.querySelector("#current");
-        const imgs = document.querySelectorAll("#imgs img");
         const opacity = 0.6;
         
-        // Set first img opacity
-        imgs[0].style.opacity = opacity;
         
-        imgs.forEach(img => img.addEventListener("click", imgClick));
+        fotogalerijaData.getGalery("5ac8975b1274f014dec92d63").then(
+            function success(odgovor) {
+                
+                //dodaj prvo sliko za "current"
+                $("#current").attr("src", "data:image/JPEG;base64," + _arrayBufferToBase64(odgovor.data.slike[0].img.data));
+                
+                //nalozi vse slike
+                for (var i=0; i<odgovor.data.slike.length; i++) {
+                    
+                    
+                    var img = document.createElement("img");
+                    img.setAttribute("src", "data:image/JPEG;base64," + _arrayBufferToBase64(odgovor.data.slike[i].img.data));
+                    img.addEventListener("click", imgClick);
+                    
+                    if(i==0) {
+                        img.style.opacity = opacity;
+                    }
+                    
+                    document.getElementsByClassName("imgs")[0].appendChild(img);
+                }
+                
+                
+            },
+            function error(napaka) {
+                
+            });
+        
+
+        
+        
         
         function imgClick(e) {
-          // Reset the opacity
-          imgs.forEach(img => (img.style.opacity = 1));
+            var imgs = document.getElementsByTagName("img");
+            
+            //Reset the opacity
+            for (var i=0; i<imgs.length; i++) {
+                imgs[i].style.opacity = 1;
+            }
         
           // Change current image to src of clicked image
           current.src = e.target.src;
@@ -32,17 +62,9 @@
         }
         
         
-        fotogalerijaData.getGalery("5ac8975b1274f014dec92d63").then(
-            function success(odgovor) {
-                console.log(odgovor.data);
-                //$("#current").attr("src", odgovor.data.slike[0].img);
-                
-                vm.image = _arrayBufferToBase64(odgovor.data.slike[0].img.data);
-                vm.image2 = _arrayBufferToBase64(odgovor.data.slike[1].img.data);
-            },
-            function error(napaka) {
-                
-            });
+        
+        
+        
         
 
         //slika pride iz DB v obliki "arrayBuffer" za prikaz potrebno pretvoriti v Base64
