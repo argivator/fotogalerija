@@ -3,7 +3,7 @@
     function galerijaCtrl($routeParams, $location, fotogalerijaData) {
         var vm = this;
 
-        var idGalerije = $routeParams.galleryID;    // id galerije dobi iz URL
+        var idGalerije = $routeParams.galleryID;    // id galerije dobi iz URL   NOTE: moj id (Luka): 5ac8975b1274f014dec92d63
 
         const current = document.querySelector("#current");
         const opacity = 0.6;
@@ -111,11 +111,10 @@
     
         //nalozi sliko v bazo
         vm.upload = function() {
-            if (document.getElementById('inputFile').files.length > 0) {
+            if (document.getElementById('inputFile').files.length > 0 && vm.imeSlike) {
                 var f = document.getElementById('inputFile').files[0];
 
-                fotogalerijaData.uploadImage(f, idGalerije, "slika1");
-                
+                fotogalerijaData.uploadImage(f, idGalerije, vm.imeSlike);
             }
             
         }
