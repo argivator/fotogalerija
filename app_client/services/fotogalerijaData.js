@@ -7,6 +7,8 @@
       var fd = new FormData();
       fd.append('slika', data);
       
+      $(".loading").show();
+      
       $http.post('/api/slika/' + idGalerije +"/"+imeSlike, fd, {
           transformRequest: angular.identity,
           headers: {'Content-Type': undefined}
@@ -20,10 +22,20 @@
         return $http.get('/api/galery/' + idGalerije);
     }
     
+    var removeImage = function(idGalerije, idSlike) {
+      $(".loading").show();
+      $http.delete('api/slika/' + idGalerije + '/' + idSlike).then(
+        function(odgovor) {
+          $(".loading").hide();
+          return odgovor;
+        })
+    }
+    
     
     return {
       uploadImage: uploadImage,
-      getGalery: getGalery
+      getGalery: getGalery,
+      removeImage: removeImage
     };
   };
   fotogalerijaData.$inject = ['$http'];

@@ -6,7 +6,7 @@
 
     function routes($routeProvider, $locationProvider) {
         $routeProvider
-            .when('/', {
+            .when('/:galleryID', {
                 templateUrl: "/galerija/galerija.view.html",
                 controller: "galerijaCtrl",
                 controllerAs: "vm"

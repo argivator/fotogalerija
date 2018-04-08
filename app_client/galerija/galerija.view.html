@@ -1,10 +1,11 @@
+<div class="loading" style="display: none;">Prosimo, počakajte ...</div>
 <div class="container">
   <nav class="navbar navbar-dark bg-light navigationClass">
-   <span class="navbar-brand mb-0 h1 navigationLogo">Fotogalerija</span>
+   <span class="navbar-brand mb-0 h1 navigationLogo">{{ vm.ime_galerije }}</span>
   </nav>
   <div class="galerija_container">
             <div class="main-img">
-              <img ng-src="data:image/JPEG;base64,{{vm.images[0]}}" id="current">
+              <img ng-src="" id="current">
             </div>
           
             <div class="imgs">
@@ -18,5 +19,7 @@
               </div>
               <button type="submit" class="btn btn-default" ng-click="vm.upload()">Upload</button>
             </form>
+            
+            <div role="alert" ng-show="vm.error" class="alert alert-danger">{{ vm.error }}</div>
 
 </div>

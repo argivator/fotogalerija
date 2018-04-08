@@ -16,6 +16,10 @@ body {
 .imgs img {
   width: 100%;
 }
+
+.rm {
+  float: right;
+}
   
 .imgs {
   display: grid;
