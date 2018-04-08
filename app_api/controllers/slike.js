@@ -29,7 +29,6 @@ module.exports.naloziSliko = function(req, res) {
 
 var dodajSliko = function(req, res, galerija) {
     var file = req.files.slika;
-    console.log(req.files.slika);
     
     galerija.slike.push({
         ime_slike: req.params.imeSlike,
@@ -44,4 +43,41 @@ var dodajSliko = function(req, res, galerija) {
       }
     });
 
+};
+
+
+module.exports.izbrisiSliko = function(req, res) {
+    if (!req.params.idGalerije || !req.params.idSlike) {
+        vrniJsonOdgovor(res, 404, {"spročilo": "Manjkajo parametri."});
+        return;
+    }
+    Galerija
+        .findById(req.params.idGalerije)
+        .exec(
+            function(err, galerija) {
+                if (!galerija) {
+                  vrniJsonOdgovor(res, 404, {"sporočilo": "Galerije ne najdem."});
+                  return;
+                } else if (err) {
+                  vrniJsonOdgovor(res, 404, err);
+                  return;
+                }
+                if (galerija.slike && galerija.slike.length > 0) {
+                  if (!galerija.slike.id(req.params.idSlike)) {
+                    vrniJsonOdgovor(res, 404, {"sporočilo": "Slike ne najdem."});
+                  } else {
+                    galerija.slike.id(req.params.idSlike).remove();
+                    galerija.save(function(err) {
+                      if (err) {
+                        vrniJsonOdgovor(res, 404, err);
+                      } else {
+                        vrniJsonOdgovor(res,  204, null);
+                      }
+                    });
+                  }
+                } else {
+                  vrniJsonOdgovor(res, 404, {"sporočilo": "Ni slike za brisanje."});
+                }
+            });
+    
 };

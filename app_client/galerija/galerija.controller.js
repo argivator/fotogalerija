@@ -18,7 +18,7 @@
                 //nalozi vse slike
                 for (var i=0; i<odgovor.data.slike.length; i++) {
                     
-                    
+                    console.log(odgovor.data.slike[i]._id);
                     var img = document.createElement("img");
                     img.setAttribute("src", "data:image/JPEG;base64," + _arrayBufferToBase64(odgovor.data.slike[i].img.data));
                     img.addEventListener("click", imgClick);
@@ -44,7 +44,7 @@
             var imgs = document.getElementsByTagName("img");
             
             //Reset the opacity
-            for (var i=0; i<imgs.length; i++) {
+            for (var i=1; i<imgs.length; i++) {
                 imgs[i].style.opacity = 1;
             }
         
@@ -78,6 +78,17 @@
           return window.btoa( binary );
         }
     
+    
+    
+        vm.upload = function() {
+            if (document.getElementById('inputFile').files.length > 0) {
+                var f = document.getElementById('inputFile').files[0];
+
+                fotogalerijaData.uploadImage(f, "5ac8975b1274f014dec92d63", "slika1");
+                
+            }
+            
+        }
         
 
     }

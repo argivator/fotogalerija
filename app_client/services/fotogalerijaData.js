@@ -4,7 +4,16 @@
   var fotogalerijaData = function($http) {
       
     var uploadImage = function(data, idGalerije, imeSlike) {
-      return $http.post('/api/slika/' + idGalerije +"/"+imeSlike, data, { headers: { 'Content-Type': undefined } });
+      var fd = new FormData();
+      fd.append('slika', data);
+      
+      $http.post('/api/slika/' + idGalerije +"/"+imeSlike, fd, {
+          transformRequest: angular.identity,
+          headers: {'Content-Type': undefined}
+      }).then(
+        function() {
+            location.reload();
+        });
     };
     
     var getGalery = function(idGalerije) {

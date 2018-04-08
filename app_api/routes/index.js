@@ -17,6 +17,7 @@ router.delete('/galery/:idGalerije', ctrlGalerije.izbrisiGalerijo);
 
 //Slike
 router.post('/slika/:idGalerije/:imeSlike', ctrlSlike.naloziSliko);
+router.delete('/slika/:idGalerije/:idSlike', ctrlSlike.izbrisiSliko);
 
 // Uporabniki
 router.post('/registracija', ctrlUporabniki.registracija);
