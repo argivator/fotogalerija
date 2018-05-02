@@ -39,14 +39,21 @@
                     img.setAttribute("src", "data:image/JPEG;base64," + _arrayBufferToBase64(odgovor.data.slike[i].img.data));
                     img.addEventListener("click", imgClick);
                     
+                    var imageRowContainer = document.createElement("div");
+                    imageRowContainer.setAttribute("class", "imageRow");
+                    
+                    var restRowContainer = document.createElement("div");
+                    restRowContainer.setAttribute("class", "restRow");
+                    
                     if(i==0) {
                         img.style.opacity = opacity;
                     }
                     
-                    
-                    imgContainer.appendChild(img);
-                    imgContainer.appendChild(imgName);
-                    imgContainer.appendChild(rm);
+                    imgContainer.appendChild(imageRowContainer);
+                    imageRowContainer.appendChild(img);
+                    imgContainer.appendChild(restRowContainer);
+                    restRowContainer.appendChild(imgName);
+                    restRowContainer.appendChild(rm);
                     
                     document.getElementsByClassName("imgs")[0].appendChild(imgContainer);
                 }

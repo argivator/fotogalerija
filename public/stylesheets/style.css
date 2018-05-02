@@ -11,12 +11,64 @@ body {
   border: #fff solid 3px;
   background: #fff;
 }
-  
+.main-img {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  text-align: center;
+}
 .main-img img,
 .imgs img {
-  width: 100%;
+  width: 50%;
+  margin: auto;
+}
+.imgContainer {
+  border: 1px solid black;
+  text-align: center;
+  position: relative;
+  height: 140px;
+  
 }
 
+.imgContainer img:hover {
+  cursor: pointer;
+}
+
+.imageRow {
+  border: 0px solid red;
+  height: 10vh;
+  width: auto;
+  padding: 0;
+  padding-bottom: 10px;
+  margin: auto;
+  overflow: hidden;
+
+}
+.main-img img{
+  height: auto;
+  width: auto;
+  padding: 1px;
+  /*position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;*/
+  margin: auto;
+}
+.imageRow img {
+  width: 100%;
+  height: auto;
+  margin: auto;
+}
+.restRow {
+  width: 100%;
+  height: 30%;
+  padding: 0;
+  margin-bottom: 10px;
+  border: 0px solid black;
+
+
+}
 
 .rm {
   float: right;
