@@ -1,34 +1,50 @@
 <div class="loading" style="display: none;">Prosimo, počakajte ...</div>
-<div class="container">
+<div class="mainDiv">
   <nav class="navbar navbar-dark bg-dark navigationClass">
    <span class="navbar-brand mb-0 h1 navigationLogo">{{ vm.ime_galerije }}</span>
+   
+   <div class="btn-group uploadButtonDiv">
+      <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Dodaj novo sliko
+      </button>
+      <div class="dropdown-menu">
+            <div class="uploadObrazec">
+            <form>
+              <div style="margin-left: 15px; font-size: 24pt;">Naloži novo sliko</div>
+                <div class="form-group col-sm-4">
+                  <label for="imageName">Ime slike</label>
+                  <input type="text" class="form-control" ng-model="vm.imeSlike" required="true" style="width: 30vw;">
+                </div>
+                <div class="form-group col-sm-4">
+                  <input type="file" id="inputFile" name="slika" class="btn btn-secondary">
+                </div>
+                <div class="form-group col-sm-4">
+                  <button type="submit" class="btn btn-secondary" ng-click="vm.upload()">Naloži</button>
+                </div>
+              </form>
+            </div>
+      </div>
+    </div>
+    <div class="col-md-8"></div>
+
+  </div>
   </nav>
   <div class="galerija_container">
+            <div class="imgs">
+                <!-- tu notri je mreza slik ki se nalozijo iz baze -->
+                
+            </div>
             <div class="main-img">
               <!-- to je velika slika, ki se zamenja ob kliku na sliko v mrezi slik -->
               <img ng-src="" id="current">
             </div>
           
-            <div class="imgs">
-                <!-- tu notri je mreza slik ki se nalozijo iz baze -->
-                
-            </div>
+            
             
             
             <!-- obrazec za dodajanje novih slik -->
-            <form>
-              <div class="form-title">Naloži novo sliko</div>
-              <div class="form-group col-sm-4">
-                <label for="imageName">Ime slike</label>
-                <input type="text" class="form-control" ng-model="vm.imeSlike" required="true">
-              </div>
-              <div class="form-group col-sm-4">
-                <input type="file" id="inputFile" name="slika">
-              </div>
-              <div class="form-group col-sm-4">
-                <button type="submit" class="btn btn-default" ng-click="vm.upload()">Naloži</button>
-              </div>
-            </form>
+            
+            
             
             <div role="alert" ng-show="vm.error" class="alert alert-danger">{{ vm.error }}</div>
 

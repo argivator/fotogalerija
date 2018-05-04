@@ -1,15 +1,34 @@
 body {
   margin: 20px;
   padding: 0;
-  background: #333;
-}
-
+  font-family: "Courier New", Courier, monospace;
   
+}
+.mainDiv {
+  background-image: url("/public/images/background.jpg");
+  background-color: #cccccc;
+  color: white;
+  
+}
+.uploadButtonDiv {
+  float: left !important;
+}
+.uploadObrazec {
+  padding: 5px;
+  text-align: left;
+  background-color: #181818;
+  border: 1px solid black;
+  color: white;
+  
+}
 .galerija_container {
-  max-width: 1500px;
+  max-width: 90%;
   margin: auto;
-  border: #fff solid 3px;
   background: #fff;
+  border: 1px solid black;
+  border-radius: 3px;
+  background-color: #181818;
+  margin-top: 10px;
 }
 .main-img {
   position: relative;
@@ -27,9 +46,19 @@ body {
   text-align: center;
   position: relative;
   height: 140px;
+  padding: 5px;
+  background-color: black;
+  color: white;
+  padding-bottom: 10px;
+  border-radius: 3px;
   
 }
-
+.imgs{
+  border: 1px solid black;
+  background-color: lightgray;
+  padding: 5px;
+  border-radius: 3px;
+}
 .imgContainer img:hover {
   cursor: pointer;
 }
@@ -48,11 +77,6 @@ body {
   height: auto;
   width: auto;
   padding: 1px;
-  /*position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;*/
   margin: auto;
 }
 .imageRow img {
