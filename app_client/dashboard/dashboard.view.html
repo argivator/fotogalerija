@@ -1,0 +1,72 @@
+<navigacija></navigacija>
+
+<div class="container">
+
+    <div class="form-group col-md-2">
+        <button class="btn btn-primary btn-lg" data-title="Add" data-toggle="modal" data-target="#add">Dodaj novo galerijo</button>
+    </div>
+
+    <div>
+        <ul ng-repeat="galerija in vm.galerije" >
+            <li><a href="/{{galerija._id}}">{{galerija.ime_galerije}}</a>   <button class="btn btn-danger btn-sm" data-title="Delete" data-toggle="modal" data-target="#delete" data-href="{{galerija._id}}">Izbriši</button></li>
+        </ul>
+    </div>
+
+</div>
+
+
+
+
+
+<!--        MODALNO OKNO ZA DODAJANJE GALERIJE      -->
+
+<div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="add" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                <h4 class="modal-title" id="Heading">Dodajanje nove galerije</h4>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="form-group">
+                    <label for="dodajanjeGalerije">Ime galerije</label>
+                    <input type="text" class="form-control" ng-model="vm.dodajanjeGalerije.ime_galerije">
+                </div>
+
+                <div class="alert alert-danger" ng-show="vm.formError"><span class="glyphicon glyphicon-warning-sign"></span> {{ vm.formError }}</div>
+            </div>
+
+            <div class="modal-footer ">
+                <button type="submit" class="btn btn-success btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Dodaj galerijo</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- MODALNO OKNO ZA IZBRIS GALERIJE -->
+<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="delete" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                    <h4 class="modal-title" id="Heading">Brisanje galerije</h4>
+                </div>
+
+
+                <div class="modal-body">
+                    <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> Ste prepričani, da želite izbrisati galerijo?</div>
+                </div>
+
+
+                <div class="modal-footer ">
+                    <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-ok-sign"></span> Da</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Ne</button>
+                </div>
+            </div>
+        </div>
+    </div>

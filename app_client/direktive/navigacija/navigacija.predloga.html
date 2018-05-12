@@ -1,0 +1,18 @@
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a href="/" class="navbar-brand">Fotogalerija</a>
+      </div>
+      <div id="navbar-main" class="navbar-collapse.collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li ng-hide="navvm.jePrijavljen"><a href="/prijava">Prijava</a></li>
+          <li ng-show="navvm.jePrijavljen" class="dropdown">
+            <a href="" class="dropdown-toggle" data-toggle="dropdown">{{ navvm.trenutniUporabnik.ime }} <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="" ng-click="navvm.odjava()">Odjava</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
