@@ -24,8 +24,26 @@ module.exports.pridobiGalerijo = function(req, res) {
     } else {
     vrniJsonOdgovor(res, 404, { "sporočilo": 
       "Manjka identifikator idGalerije"});
-  }
+    }
     
+};
+
+module.exports.pridobiGalerije = function(req, res) {
+	if (req.params && req.params.email) {
+		Galerija
+			.find({
+				'avtor_email': req.params.email
+			})
+			.exec(function(err, results) {
+				if (err) {
+					vrniJsonOdgovor(res, 404, err);
+					return;
+				}
+				vrniJsonOdgovor(res, 200, results);
+			});
+	} else {
+		vrniJsonOdgovor(res, 404, { "sporočilo": "Manjka email."})
+	}
 };
 
 

@@ -20,7 +20,11 @@
     
     var getGalery = function(idGalerije) {
         return $http.get('/api/galery/' + idGalerije);
-    }
+    };
+
+    var getGalerys = function(email) {
+      return $http.get('/api/galerys/' + email);
+    };
     
     var removeImage = function(idGalerije, idSlike) {
       $(".loading").show();
@@ -35,6 +39,7 @@
     return {
       uploadImage: uploadImage,
       getGalery: getGalery,
+      getGalerys: getGalerys,
       removeImage: removeImage
     };
   };

@@ -11,6 +11,7 @@ var ctrlGalerije = require('../controllers/galerije');
 var ctrlSlike = require('../controllers/slike');
 
 //Galerije
+router.get('/galerys/:email', ctrlGalerije.pridobiGalerije);
 router.get('/galery/:idGalerije', ctrlGalerije.pridobiGalerijo);
 router.post('/galery', ctrlGalerije.ustvariGalerijo);
 router.delete('/galery/:idGalerije', ctrlGalerije.izbrisiGalerijo);

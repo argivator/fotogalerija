@@ -61,8 +61,7 @@
                 
             },
             function error(napaka) {
-                $("form").empty();
-                vm.error = "404 galerija ne obstaja.";
+                console.log("Galerija not found!");
             });
         
         

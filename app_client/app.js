@@ -6,6 +6,21 @@
 
     function routes($routeProvider, $locationProvider) {
         $routeProvider
+            .when('/', {
+                templateUrl: "/dashboard/dashboard.view.html",
+                controller: "dashboardCtrl",
+                controllerAs: "vm"
+            })
+            .when('/prijava', {
+                templateUrl: "/uporabniki/prijava/prijava.view.html",
+                controller: "prijavaCtrl",
+                controllerAs: "vm"
+            })
+            .when('/registracija', {
+                templateUrl: "/uporabniki/registracija/registracija.view.html",
+                controller: "registracijaCtrl",
+                controllerAs: "vm"
+            })
             .when('/:galleryID', {
                 templateUrl: "/galerija/galerija.view.html",
                 controller: "galerijaCtrl",
