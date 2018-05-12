@@ -25,6 +25,14 @@
     var getGalerys = function(email) {
       return $http.get('/api/galerys/' + email);
     };
+
+    var dodajGalerijo = function(data) {
+      return $http.post('/api/galery', data);
+    };
+
+    var deleteGalery = function(idGalerije) {
+      return $http.delete('/api/galery/' + idGalerije);
+    }
     
     var removeImage = function(idGalerije, idSlike) {
       $(".loading").show();
@@ -33,13 +41,15 @@
           $(".loading").hide();
           return odgovor;
         })
-    }
+    };
     
     
     return {
       uploadImage: uploadImage,
       getGalery: getGalery,
       getGalerys: getGalerys,
+      dodajGalerijo: dodajGalerijo,
+      deleteGalery: deleteGalery,
       removeImage: removeImage
     };
   };
