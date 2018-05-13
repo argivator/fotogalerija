@@ -91,7 +91,7 @@
             var imgs = document.getElementsByTagName("img");
             
             //Reset the opacity
-            for (var i=1; i<imgs.length; i++) {
+            for (var i=0; i<imgs.length; i++) {
                 imgs[i].style.opacity = 1;
             }
         
