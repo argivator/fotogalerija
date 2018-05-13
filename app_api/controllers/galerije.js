@@ -36,7 +36,6 @@ module.exports.pridobiGalerije = function(req, res) {
       })
       .select({
         '_id': 1,
-        'avtor_email': 1,
         'ime_galerije': 1
       })
 			.exec(function(err, results) {
