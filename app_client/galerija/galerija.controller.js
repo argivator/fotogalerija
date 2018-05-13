@@ -1,9 +1,10 @@
 (function() {
     /* global angular */
-    function galerijaCtrl($routeParams, $location, fotogalerijaData) {
+    function galerijaCtrl($routeParams, $location, fotogalerijaData, avtentikacija) {
         var vm = this;
 
-        var idGalerije = $routeParams.galleryID;    // id galerije dobi iz URL   NOTE: moj id (Luka): 5ac8975b1274f014dec92d63
+        var idGalerije = $routeParams.galleryID;
+
 
         const current = document.querySelector("#current");
         const opacity = 0.6;
@@ -13,6 +14,12 @@
         startLoading();
         fotogalerijaData.getGalery(idGalerije).then(
             function success(odgovor) {
+
+                if (!avtentikacija.jePrijavljen()) {
+                    vm.avtorIsLogedIn = false;
+                } else {
+                    vm.avtorIsLogedIn = (avtentikacija.trenutniUporabnik().elektronskiNaslov == odgovor.data.avtor_email);
+                }
                 
                 vm.ime_galerije = odgovor.data.ime_galerije;
                 
@@ -53,7 +60,8 @@
                     imageRowContainer.appendChild(img);
                     imgContainer.appendChild(restRowContainer);
                     restRowContainer.appendChild(imgName);
-                    restRowContainer.appendChild(rm);
+                    if (vm.avtorIsLogedIn)
+                        restRowContainer.appendChild(rm);
                     
                     document.getElementsByClassName("imgs")[0].appendChild(imgContainer);
                 }
@@ -143,7 +151,7 @@
 
     }
 
-    galerijaCtrl.$inject = ['$routeParams', '$location', 'fotogalerijaData'];
+    galerijaCtrl.$inject = ['$routeParams', '$location', 'fotogalerijaData', 'avtentikacija'];
 
     angular
         .module('fotogalerija')
