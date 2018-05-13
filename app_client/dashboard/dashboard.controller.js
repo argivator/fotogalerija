@@ -3,10 +3,13 @@
     function dashboardCtrl($routeParams, $location, fotogalerijaData, avtentikacija, $scope) {
         var vm = this;
 
+        var currUserEmail;
         if (!avtentikacija.jePrijavljen()) {
             $location.path("/prijava");
+        } else {
+            currUserEmail = avtentikacija.trenutniUporabnik().elektronskiNaslov;
         }
-        var currUserEmail = avtentikacija.trenutniUporabnik().elektronskiNaslov;
+        
 
         fotogalerijaData.getGalerys(currUserEmail).then(
             function success(odgovor) {
