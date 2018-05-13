@@ -33,7 +33,12 @@ module.exports.pridobiGalerije = function(req, res) {
 		Galerija
 			.find({
 				'avtor_email': req.params.email
-			})
+      })
+      .select({
+        '_id': 1,
+        'avtor_email': 1,
+        'ime_galerije': 1
+      })
 			.exec(function(err, results) {
 				if (err) {
 					vrniJsonOdgovor(res, 404, err);
