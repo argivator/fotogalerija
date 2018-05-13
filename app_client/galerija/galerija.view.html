@@ -1,7 +1,9 @@
 <navigacija ng-show="false"></navigacija>
 <div class="loading" style="display: none;">Prosimo, počakajte ...</div>
-<div class="mainDiv">
-  <nav class="navbar navbar-dark bg-dark navigationClass">
+
+<div>
+  <div class="collapse" id="navbarToggleExternalContent">
+   <nav class="navbar navbar-dark bg-dark navigationClass">
    <span class="navbar-brand mb-0 h1 navigationLogo">{{ vm.ime_galerije }}</span>
    
    <div class="btn-group uploadButtonDiv">
@@ -56,6 +58,16 @@
 
   </div>
   </nav>
+  </div>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon expandNavbar">
+        Toggle navbar
+      </span>
+    </button>
+</div>
+<div class="mainDiv">
+  
+  
   <div class="galerija_container">
             <div class="imgs">
                 <!-- tu notri je mreza slik ki se nalozijo iz baze -->
