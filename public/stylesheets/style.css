@@ -2,7 +2,56 @@ body {
   margin: 20px;
   padding: 0;
   font-family: "Courier New", Courier, monospace;
+}
+
+#navbar-main {
+  float: right !important;
+  color: white !important;
+}
+.navClassColors {
+  color: white !important;
   
+}
+#inputFile {
+  display:none;
+}
+.mojeGalerijeItem {
+  background-color: rgba(0,0,0,0.5);
+  border: 2px solid white;
+  border-radius: 3px;
+  padding: 10px;
+  margin-bottom: 10px;
+
+}
+.mojeGalerijeItem a {
+  color: white !important;
+}
+.mojeGalerijeItem button {
+  float: right !important;
+}
+.dropMenuName {
+  background-color: black !important;
+  color: white !important;
+  margin: 5px !important;
+  border: 2px solid white !important;
+  margin-right: 0 !important;
+}
+.dropMenuName div {
+  display: block;
+  color: white !important;
+  background-color: black !important;
+  margin: 5px !important;
+  width: 90%;
+  
+}
+.dropMenuName div:hover {
+  cursor: pointer;
+  background-color: rgba(1,1,1,0.8) !important;
+}
+.bodyClass {
+  background-image: url("../images/background.jpg");
+  background-repeat: no-repeat;
+  background-size: auto 100vw;
 }
 .mainDiv {
   background-image: url("/public/images/background.jpg");
@@ -24,16 +73,17 @@ body {
 .galerija_container {
   max-width: 90%;
   margin: auto;
-  background: #fff;
   border: 1px solid black;
   border-radius: 3px;
-  background-color: #181818;
   margin-top: 10px;
 }
 .main-img {
   position: relative;
   width: 100%;
   text-align: center;
+  border: 2px solid white;
+  border-radius: 3px;
+  background: rgba(0,0,0,0.8);
 }
 .main-img img,
 .imgs img {
@@ -54,9 +104,11 @@ body {
 }
 .imgs{
   border: 1px solid black;
-  background-color: lightgray;
+  background: rgba(0,0,0,0.8);
   padding: 5px;
   border-radius: 3px;
+  border: 2px solid white;
+  margin-bottom: 10px;
 }
 .imgContainer img:hover {
   cursor: pointer;
@@ -87,14 +139,22 @@ body {
   width: 100%;
   height: 30%;
   padding: 0;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  padding-bottom: 5px !important;
   border: 0px solid black;
+  margin-top: 5px;
 
 
 }
-
+#current {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 60%;
+  background: rgba(0,0,0,0);
+}
 .rm {
   float: right;
+  margin-bottom: 5px;
 }
   
 .imgs {
@@ -113,8 +173,4 @@ body {
 .fade-in {
   opacity: 0;
   animation: fadeIn 0.5s ease-in 1 forwards;
-}
-
-body {
-  background-color: lightgray!important;
 }

@@ -16,6 +16,10 @@
         $location.path('/prijava');
         $route.reload();
       }
+      navvm.nazajNaGalerije = function(){
+        $location.path('/');
+        $route.reload();
+      }
     };
     
     angular

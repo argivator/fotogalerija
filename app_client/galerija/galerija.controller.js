@@ -38,7 +38,7 @@
                     imgName.innerHTML = odgovor.data.slike[i].ime_slike;
                     
                     var rm = document.createElement("button");
-                    rm.setAttribute("class", "btn btn-danger rm");
+                    rm.setAttribute("class", "btn btn-secondary rm");
                     rm.setAttribute("idSlike", odgovor.data.slike[i]._id);
                     rm.innerHTML = "Delete";
                     

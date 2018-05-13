@@ -1,9 +1,10 @@
-<div class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
+<div class="navbar navbar-default navbar-fixed-top navClassColors">
+    <div class="row">
+      <div class="navbar-header col-md-4">
         <a href="/" class="navbar-brand">Fotogalerija</a>
       </div>
-      <div id="navbar-main" class="navbar-collapse.collapse">
+      
+      <div id="navbar-main" class="navbar-collapse.collapse navbar-brand col-md-6" style="float:right;">
         <ul class="nav navbar-nav navbar-right">
           <li ng-hide="navvm.jePrijavljen"><a href="/prijava">Prijava</a></li>
           <li ng-show="navvm.jePrijavljen" class="dropdown">

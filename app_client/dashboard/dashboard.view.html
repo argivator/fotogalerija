@@ -1,15 +1,48 @@
-<navigacija></navigacija>
-
+<navigacija ng-show="false"></navigacija>
+<div class="mainDiv">
+    <nav class="navbar navbar-dark bg-dark navigationClass">
+        <span class="navbar-brand mb-0 h1 navigationLogo">{{ vm.ime_galerije }}</span>
+        
+        <div class="col-md-1 uploadButtonDiv" style="text-align: right">
+          <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-show="vm.avtorIsLogedIn">
+            {{ navvm.trenutniUporabnik.ime }}
+          </button>
+          <div class="dropdown-menu dropMenuName">
+            
+              <a href="" ng-click="navvm.odjava()">Odjava</a>
+          </div>
+          
+          <ul class="nav navbar-nav navbar-right">
+              <li ng-hide="navvm.jePrijavljen">
+                <a href="/prijava">Prijava</a>
+              </li>
+              <li ng-show="navvm.jePrijavljen" class="btn-group uploadButtonDiv">
+                
+                
+                
+              </li>
+            </ul>
+        </div>
+    </nav>
+    
+</div>
 <div class="container">
 
-    <div class="form-group col-md-2">
-        <button class="btn btn-primary btn-lg" data-title="Add" data-toggle="modal" data-target="#add">Dodaj novo galerijo</button>
+    <div class="form-group col-md-2" style="margin: 10px">
+        <button class="btn btn-secondary btn-lg" data-title="Add" data-toggle="modal" data-target="#add">Dodaj novo galerijo</button>
     </div>
 
-    <div>
-        <ul ng-repeat="galerija in vm.galerije" >
-            <li><a href="/{{galerija._id}}">{{galerija.ime_galerije}}</a>   <button class="btn btn-danger btn-sm" data-title="Delete" data-toggle="modal" data-target="#delete" data-href="{{galerija._id}}">Izbriši</button></li>
-        </ul>
+    <div style="margin-left: 30px; background-color: rgba(0,0,0,0.8); padding: 10px">
+        <span style="color: white; font-size: 20px">Moje galerije</span>
+        <br />
+        <br />
+        <div ng-repeat="galerija in vm.galerije">
+            <div class="mojeGalerijeItem">
+                <a href="/{{galerija._id}}">{{galerija.ime_galerije}}</a>
+                <button class="btn btn-secondary btn-sm" data-title="Delete" data-toggle="modal" data-target="#delete" data-href="{{galerija._id}}">Izbriši</button>
+            </div>
+        </div>
+        
     </div>
 
 </div>
