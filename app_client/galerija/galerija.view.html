@@ -1,10 +1,11 @@
+<navigacija></navigacija>
 <div class="loading" style="display: none;">Prosimo, počakajte ...</div>
 <div class="mainDiv">
   <nav class="navbar navbar-dark bg-dark navigationClass">
    <span class="navbar-brand mb-0 h1 navigationLogo">{{ vm.ime_galerije }}</span>
    
    <div class="btn-group uploadButtonDiv">
-      <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-show="vm.avtorIsLogedIn">
         Dodaj novo sliko
       </button>
       <div class="dropdown-menu">
