@@ -7,10 +7,10 @@
    <span class="navbar-brand mb-0 h1 navigationLogo">{{ vm.ime_galerije }}</span>
    
    <div class="btn-group uploadButtonDiv">
-      <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-show="vm.avtorIsLogedIn">
+      <button ng-click="vm.openMenu1()" type="button" class="btn btn-secondary dropdown-toggle" aria-haspopup="true" aria-expanded="false" ng-show="vm.avtorIsLogedIn">
         Dodaj novo sliko
       </button>
-      <div class="dropdown-menu">
+      <div id="menu1" class="dropdown-menu dropMenuName">
             <div class="uploadObrazec">
             <form>
               <div style="margin-left: 15px; font-size: 24pt;">Naloži novo sliko</div>
@@ -39,8 +39,8 @@
         {{ navvm.trenutniUporabnik.ime }}
       </button>
       <div class="dropdown-menu dropMenuName">
-          <div ng-click="navvm.nazajNaGalerije()">Moje galerije</div>
-          <div ng-click="navvm.odjava()">Odjava</div>
+          <div ng-click="navvm.nazajNaGalerije()" class="hoverSquad">Moje galerije</div>
+          <div ng-click="navvm.odjava()" class="hoverSquad">Odjava</div>
           
       </div>
       
@@ -60,8 +60,8 @@
   </nav>
   </div>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon expandNavbar">
-        Toggle navbar
+      <span id="navNapis" class="navbar-toggler-icon expandNavbar">
+        Prikaži/skrij orodno vrstico
       </span>
     </button>
 </div>
@@ -69,11 +69,21 @@
   
   
   <div class="galerija_container">
-            <div class="imgs">
-                <!-- tu notri je mreza slik ki se nalozijo iz baze -->
+      
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="collapse" data-target="#menu2" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
                 
+                  Prikaži/skrij moje slike
+                
+            </button>
+            <div id="menu2" class="collapse show">
+              <div class="imgs">
+                  <!-- tu notri je mreza slik ki se nalozijo iz baze -->
+                  
+              </div>
             </div>
+            
             <div class="main-img">
+              
               <!-- to je velika slika, ki se zamenja ob kliku na sliko v mrezi slik -->
               <img ng-src="" id="current">
             </div>

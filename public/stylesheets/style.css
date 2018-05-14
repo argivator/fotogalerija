@@ -15,6 +15,8 @@ body {
 #inputFile {
   display:none;
 }
+
+
 .mojeGalerijeItem {
   background-color: rgba(0,0,0,0.5);
   border: 2px solid white;
@@ -23,6 +25,9 @@ body {
   margin-bottom: 10px;
 
 }
+
+
+
 .mojeGalerijeItem a {
   color: white !important;
 }
@@ -41,6 +46,17 @@ body {
   padding-top: 5px;
   padding-bottom: 5px;
   font-size: 20px;
+}
+.expandNavbar1 {
+  background-color: #343a40!important;
+  width: 100% !important;
+  margin: 5px !important;
+  color: white !important;
+  text-align: center;
+  font-size: 15px;
+  padding: 10px !important;
+  border: 1px solid white;
+  border-radius: 3px;
 }
 
 .expandNavbar:focus {
@@ -66,7 +82,10 @@ body {
 }
 .dropMenuName div:hover {
   cursor: pointer;
-  background-color: rgba(1,1,1,0.8) !important;
+}
+.hoverSquad:hover {
+    background-color: lightgray !important;
+    border-radius: 3px;
 }
 .bodyClass {
   background-image: url("../images/background.jpg");
@@ -91,7 +110,6 @@ body {
 .galerija_container {
   max-width: 90%;
   margin: auto;
-  border: 1px solid black;
   border-radius: 3px;
   margin-top: 10px;
 }

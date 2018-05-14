@@ -130,7 +130,21 @@
 
                 fotogalerijaData.uploadImage(f, idGalerije, vm.imeSlike);
             }
+            vm.openMenu1();
             
+        }
+        var open = false;
+        vm.openMenu1 = function(){
+            console.log("Ok!");
+            if(open){
+                open = false;
+                $('#navNapis').html("Pokaži orodno vrstico");
+            }else{
+                open = true;
+                $('#navNapis').html("Skrij orodno vrstico");
+            }
+            $('#menu1').toggleClass('show');
+            //document.getElementById("menu1").toggleClass('open');
         }
         
         
