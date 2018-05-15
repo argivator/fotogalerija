@@ -136,6 +136,11 @@
         var open = false;
         vm.openMenu1 = function(){
             console.log("Ok!");
+            $('#menu1').toggleClass('show');
+            //document.getElementById("menu1").toggleClass('open');
+        }
+        
+        vm.odpriNavbar = function(){
             if(open){
                 open = false;
                 $('#navNapis').html("Pokaži orodno vrstico");
@@ -143,8 +148,6 @@
                 open = true;
                 $('#navNapis').html("Skrij orodno vrstico");
             }
-            $('#menu1').toggleClass('show');
-            //document.getElementById("menu1").toggleClass('open');
         }
         
         

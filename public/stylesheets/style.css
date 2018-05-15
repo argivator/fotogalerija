@@ -10,12 +10,17 @@ body {
 }
 .navClassColors {
   color: white !important;
+  margin-bottom: 0 !important;
+  border: none !important;
   
 }
 #inputFile {
   display:none;
 }
 
+*:focus {
+    outline: none !important;
+}
 
 .mojeGalerijeItem {
   background-color: rgba(0,0,0,0.5);
@@ -46,6 +51,8 @@ body {
   padding-top: 5px;
   padding-bottom: 5px;
   font-size: 20px;
+  margin-top: 0 !important;
+  border: none !important;
 }
 .expandNavbar1 {
   background-color: #343a40!important;
@@ -57,6 +64,7 @@ body {
   padding: 10px !important;
   border: 1px solid white;
   border-radius: 3px;
+  margin-top: 0 !important;
 }
 
 .expandNavbar:focus {
@@ -99,6 +107,11 @@ body {
 .uploadButtonDiv {
   float: left !important;
 }
+.topText {
+  text-align: center;
+  font-size: 45px;
+  color: white;
+}
 .uploadObrazec {
   padding: 5px;
   text-align: left;
@@ -125,6 +138,23 @@ body {
 .imgs img {
   width: 50%;
   margin: auto;
+}
+
+.loginForm{
+  background-color: rgba(0,0,0,0.4);
+  color: white !important;
+  padding: 10px;
+  border: 2px solid white;
+  border-radius: 3px;
+  text-align: left;
+}
+.loginForm button {
+  margin: auto;
+  float: center;
+  text-align: center;
+}
+.loginForm input{
+  background-color: white;
 }
 .imgContainer {
   border: 1px solid black;
@@ -209,4 +239,8 @@ body {
 .fade-in {
   opacity: 0;
   animation: fadeIn 0.5s ease-in 1 forwards;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px white inset;
 }

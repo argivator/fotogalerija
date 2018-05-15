@@ -1,9 +1,14 @@
-<div class="container">
-    
+<div class="container" style="text-align: center;">
+  <span class="topText">
+    Spletna galerija.
+  </span>
   <div class="row">
-    <div class="col-md-6 col-sm-12">
-      <p class="lead">Še niste registrirani uporabnik? Prosim <a href="/registracija">registrirajte</a> se.</p>
-      <form ng-submit="vm.posiljanjePodatkov()" autocomplete="off">
+    <div class="col-md-3 col-sm-0">
+      
+    </div>
+    <div class="col-md-6 col-sm-12" style="padding-top: 10vh">
+      
+      <form class="loginForm" ng-submit="vm.posiljanjePodatkov()" autocomplete="off">
         <div role="alert" ng-show="vm.napakaNaObrazcu" class="alert alert-danger">{{ vm.napakaNaObrazcu }}</div>
         <div class="form-group">
           <label for="email">Elektronski naslov</label>
@@ -13,8 +18,13 @@
           <label for="password">Geslo</label>
           <input type="password" class="form-control" id="geslo" placeholder="Geslo" ng-model="vm.prijavniPodatki.geslo">
         </div>
-        <button type="submit" class="btn btn-default">Prijava!</button>
+        <button type="submit" class="btn btn-secondary">Prijava!</button>
+        <p class="lead" style="color: white !important">Še niste registrirani uporabnik? <a href="/registracija">Registrirajte</a> se.</p>
       </form>
+      
+    </div>
+    <div class="col-md-3 col-sm-0">
+      
     </div>
   </div>
 

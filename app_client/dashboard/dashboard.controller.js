@@ -4,10 +4,14 @@
         var vm = this;
 
         var currUserEmail;
+        
+        vm.avtorIsLogedIn = false;
         if (!avtentikacija.jePrijavljen()) {
             $location.path("/prijava");
+            vm.avtorIsLogedIn = false;
         } else {
             currUserEmail = avtentikacija.trenutniUporabnik().elektronskiNaslov;
+            vm.avtorIsLogedIn = true;
         }
         
 
@@ -74,6 +78,18 @@
                 });
 
             
+        }
+        
+        var open = false;
+        
+        vm.odpriNavbar = function(){
+            if(open){
+                open = false;
+                $('#navNapis').html("Pokaži orodno vrstico");
+            }else{
+                open = true;
+                $('#navNapis').html("Skrij orodno vrstico");
+            }
         }
     }
 
