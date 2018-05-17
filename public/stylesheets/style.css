@@ -96,9 +96,8 @@ body {
     border-radius: 3px;
 }
 .bodyClass {
-  background-image: url("../images/background.jpg");
-  background-repeat: no-repeat;
-  background-size: auto 100vw;
+  background-image: url("../images/3.jpg");
+  
 }
 .mainDiv {
   color: white;
@@ -215,18 +214,23 @@ body {
 #current {
   padding-top: 10px;
   padding-bottom: 10px;
-  width: 60%;
+  width: 80%;
   background: rgba(0,0,0,0);
 }
 .rm {
   float: right;
   margin-bottom: 5px;
 }
-  
+.cmpr {
+  float: right;
+  margin-right: 10px;
+}
 .imgs {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(1, 1fr);
   grid-gap: 5px;
+  padding-bottom: 10px;
 }
   
 /* Fade in animation */

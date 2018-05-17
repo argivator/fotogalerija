@@ -5,10 +5,27 @@
 
         var idGalerije = $routeParams.galleryID;
 
-
+        vm.compare = false;
         const current = document.querySelector("#current");
         const opacity = 0.6;
         
+        var images = ["../images/3.jpg", "../images/5.jpg"]
+        
+        // testing stuff
+        //var body =  document.getElementById("bodyId");
+        // body.style.backgroundImage = "url(" + images[0] + ")";
+        
+        /*
+        var i = 0;
+        setInterval(function() {
+              console.log("Change.");
+              body.style.backgroundImage = "url(" + images[i] + ")";
+              i = i + 1;
+              if (i == images.length) {
+                i =  0;
+              }
+        }, 2000);
+        */
         
         // nalozi vse slike iz baze in prvo(če obstaja) nastavi za glavno
         startLoading();
@@ -40,7 +57,13 @@
                     var rm = document.createElement("button");
                     rm.setAttribute("class", "btn btn-secondary rm");
                     rm.setAttribute("idSlike", odgovor.data.slike[i]._id);
-                    rm.innerHTML = "Delete";
+                    rm.innerHTML = "X";
+                    
+                    var add2nd = document.createElement("button");
+                    add2nd.setAttribute("class", "btn btn-secondary cmpr");
+                    add2nd.setAttribute("idSlike", odgovor.data.slike[i]._id);
+                    add2nd.setAttribute("ng-disabled", "!vm.compare");
+                    add2nd.innerHTML = "Primerjaj";
                     
                     var img = document.createElement("img");
                     img.setAttribute("src", "data:image/JPEG;base64," + _arrayBufferToBase64(odgovor.data.slike[i].img.data));
@@ -60,8 +83,10 @@
                     imageRowContainer.appendChild(img);
                     imgContainer.appendChild(restRowContainer);
                     restRowContainer.appendChild(imgName);
+                    
                     if (vm.avtorIsLogedIn)
                         restRowContainer.appendChild(rm);
+                    restRowContainer.appendChild(add2nd);
                     
                     document.getElementsByClassName("imgs")[0].appendChild(imgContainer);
                 }
@@ -147,6 +172,25 @@
             }else{
                 open = true;
                 $('#navNapis').html("Skrij orodno vrstico");
+            }
+        }
+        
+        
+        vm.toggleCompare = function(){
+            if(vm.compare == false){
+                vm.compare = true;
+                document.getElementById("imgCompare1").classList.remove('col-md-12');
+                document.getElementById("imgCompare1").classList.add('col-md-6');
+                
+                $("#buttonCompare").html("Izklopi primerjanje");
+                
+                
+            }else{
+                vm.compare = false;
+                document.getElementById("imgCompare1").classList.remove('col-md-6');
+                document.getElementById("imgCompare1").classList.add('col-md-12');
+                
+                $("#buttonCompare").html("Vklopi primerjanje");
             }
         }
         

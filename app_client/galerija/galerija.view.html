@@ -31,7 +31,10 @@
             </div>
       </div>
     </div>
-    <div class="col-md-7">
+    <div class="col-md-1">
+      <button class="btn btn-secondary" id="buttonCompare" ng-click="vm.toggleCompare()">Vklopi primerjanje</button>
+    </div>
+    <div class="col-md-6">
       
     </div>
     <div class="col-md-1 uploadButtonDiv" style="text-align: right">
@@ -85,7 +88,14 @@
             <div class="main-img">
               
               <!-- to je velika slika, ki se zamenja ob kliku na sliko v mrezi slik -->
-              <img ng-src="" id="current">
+              <div id="imgCompare1" class="col-md-12">
+                <img ng-src="" id="current">
+              </div>
+              <div id="imgCompare2" class="col-md-6" ng-show="vm.compare">
+                <img ng-src="" id="current2">
+                
+              </div>
+              
             </div>
           
             
