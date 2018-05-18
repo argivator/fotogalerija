@@ -130,6 +130,12 @@ body {
   border-radius: 3px;
   margin-top: 10px;
 }
+.slikeGridItem:hover{
+  cursor: pointer;
+  background-color: white;
+  width: 80%;
+  
+}
 .main-img {
   position: relative;
   width: 100%;

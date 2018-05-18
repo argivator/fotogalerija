@@ -31,8 +31,14 @@
             </div>
       </div>
     </div>
+    
     <div class="col-md-1">
       <button class="btn btn-secondary" id="buttonCompare" ng-click="vm.toggleCompare()">Vklopi primerjanje</button>
+    </div>
+    <div class="form-group col-md-2" style="margin: 10px">
+        <button class="btn btn-secondary" ng-click="vm.dodajVrsticoCompare()">+</button>
+        <button class="btn btn-secondary" ng-click="vm.odstraniVrsticoCompare()">-</button>
+        
     </div>
     <div class="col-md-6">
       
@@ -87,16 +93,19 @@
             </div>
       </div>
       <div class="col-md-9" id="glavnaSlikca">
-        <div class="main-img">
-              
-              <!-- to je velika slika, ki se zamenja ob kliku na sliko v mrezi slik -->
-              <div id="imgCompare1" class="col-md-12">
-                <img ng-src="" id="current">
-              </div>
-              <div id="imgCompare2" class="col-md-6" ng-show="vm.compare">
-                <img ng-src="" id="current2">
+        <div class="main-img" id="compareDiv">
+              <div class="row">
+                <div id="11gridDiv" class="col-md-12 slikeGridItem" ng-click="vm.izberiTaKvadrat('11grid')">
+                  <img ng-src="" id="current">
+                </div>
+              <div id="12gridDiv" class="col-md-6 slikeGridItem" ng-show="vm.compare" ng-click="vm.izberiTaKvadrat('12grid')">
+                <img ng-src="../images/placeholder.png" id="12grid" style="width: 80%">
                 
               </div>
+                
+              </div>
+              <!-- to je velika slika, ki se zamenja ob kliku na sliko v mrezi slik -->
+              
               
             </div>
           

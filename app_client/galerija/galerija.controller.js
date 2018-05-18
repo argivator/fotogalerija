@@ -1,12 +1,12 @@
 (function() {
     /* global angular */
-    function galerijaCtrl($routeParams, $location, fotogalerijaData, avtentikacija) {
+    function galerijaCtrl($routeParams, $location, fotogalerijaData, avtentikacija, $scope, $compile) {
         var vm = this;
 
         var idGalerije = $routeParams.galleryID;
 
         vm.compare = false;
-        const current = document.querySelector("#current");
+        var current =  document.querySelector("#current");
         const opacity = 0.6;
         
         var images = ["../images/3.jpg", "../images/5.jpg"]
@@ -86,7 +86,7 @@
                     
                     if (vm.avtorIsLogedIn)
                         restRowContainer.appendChild(rm);
-                    //restRowContainer.appendChild(add2nd);
+                    //girestRowContainer.appendChild(add2nd);
                     
                     document.getElementsByClassName("imgs")[0].appendChild(imgContainer);
                 }
@@ -119,6 +119,8 @@
             for (var i=0; i<imgs.length; i++) {
                 imgs[i].style.opacity = 1;
             }
+            
+        current =  document.querySelector("#current");
         
           // Change current image to src of clicked image
           current.src = e.target.src;
@@ -179,16 +181,16 @@
         vm.toggleCompare = function(){
             if(vm.compare == false){
                 vm.compare = true;
-                document.getElementById("imgCompare1").classList.remove('col-md-12');
-                document.getElementById("imgCompare1").classList.add('col-md-6');
+                document.getElementById("11gridDiv").classList.remove('col-md-12');
+                document.getElementById("11gridDiv").classList.add('col-md-6');
                 
                 $("#buttonCompare").html("Izklopi primerjanje");
                 
                 
             }else{
                 vm.compare = false;
-                document.getElementById("imgCompare1").classList.remove('col-md-6');
-                document.getElementById("imgCompare1").classList.add('col-md-12');
+                document.getElementById("11gridDiv").classList.remove('col-md-6');
+                document.getElementById("11gridDiv").classList.add('col-md-12');
                 
                 $("#buttonCompare").html("Vklopi primerjanje");
             }
@@ -221,8 +223,52 @@
                 
             }
         }
+        vm.stVrstic = 1;
         
+        vm.dodajVrsticoCompare = function(){
+            vm.stVrstic++;
+            
+            //var div = document.getElementById("compareDiv");
+            var divTmp = $("#compareDiv");
+            if(vm.compare){
+                var gridNum1 = vm.stVrstic + "1grid";
+                var gridNum2 = vm.stVrstic + "2grid";
+                var toAdd = "<div class='novaVrstica row' ng-show='vm.compare'><div class='col-md-6 slikeGridItem' id='" + gridNum1 +"Div' ng-click='izberiTaKvadrat(\"" + gridNum1 + "\")'> \
+                                         <img src='../images/placeholder.png' style='width: 80%'></div>     \
+                            <div class='col-md-6 slikeGridItem' id='" + vm.stVrstic +"2gridDiv' ng-click='izberiTaKvadrat(\"" + gridNum2 + "\")')'><img src='../images/placeholder.png' style='width: 80%'></div></div>";
+                divTmp.append($compile(toAdd)($scope));
+                $scope.$apply();
+            }
+        }
         
+        vm.izberiTaKvadrat = function(idSlike){
+            console.log(idSlike);
+            var divId = idSlike +  "Div";
+            var div = $("#" + divId);
+            //div.css("background-color", "white");
+            
+            $("#current").attr("id","temp");
+            div.find('img').attr("id", "current");
+        }
+        
+        vm.odstraniVrsticoCompare = function(){
+            vm.stVrstic--;
+            
+            var divTmp = $("#compareDiv");
+            $('#compareDiv div.novaVrstica').last().remove();
+            
+        }
+        
+        $scope.izberiTaKvadrat = function(idSlike){
+            console.log(idSlike);
+            
+            var divId = idSlike +  "Div";
+            var div = $("#" + divId);
+            //div.css("background-color", "white");
+            
+            $("#current").attr("id","temp");
+            div.find('img').attr("id", "current");
+        }
         
         
         
@@ -239,7 +285,7 @@
 
     }
 
-    galerijaCtrl.$inject = ['$routeParams', '$location', 'fotogalerijaData', 'avtentikacija'];
+    galerijaCtrl.$inject = ['$routeParams', '$location', 'fotogalerijaData', 'avtentikacija', '$scope', '$compile'];
 
     angular
         .module('fotogalerija')
