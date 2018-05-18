@@ -132,8 +132,13 @@ body {
 }
 .slikeGridItem:hover{
   cursor: pointer;
-  background-color: white;
-  width: 80%;
+  background-color: rgba(255,255,255,0.3)
+  
+}
+.slikeGridItem {
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
   
 }
 .main-img {
@@ -143,13 +148,22 @@ body {
   border: 2px solid white;
   border-radius: 3px;
   background: rgba(0,0,0,0.8);
+  padding-left: 10px;
+  padding-right: 10px;
+  
 }
 .main-img img,
 .imgs img {
   width: 50%;
   margin: auto;
 }
-
+#temp {
+  width: 100% !important;
+}
+.glow {
+  border: 1px solid white;
+  box-shadow: 2px 2px #FFFFFF;
+}
 .loginForm{
   background-color: rgba(0,0,0,0.4);
   color: white !important;
@@ -223,10 +237,10 @@ body {
 
 }
 #current {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  width: 80%;
-  background: rgba(0,0,0,0);
+  /*padding-top: 10px;
+  padding-bottom: 10px; */
+  width: 100% !important;
+  /* background: rgba(0,0,0,0);*/
 }
 .rm {
   float: right;

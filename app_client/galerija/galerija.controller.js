@@ -181,6 +181,7 @@
         vm.toggleCompare = function(){
             if(vm.compare == false){
                 vm.compare = true;
+                document.getElementById("current").classList.add("glow");
                 document.getElementById("11gridDiv").classList.remove('col-md-12');
                 document.getElementById("11gridDiv").classList.add('col-md-6');
                 
@@ -189,6 +190,7 @@
                 
             }else{
                 vm.compare = false;
+                document.getElementById("current").classList.remove("glow");
                 document.getElementById("11gridDiv").classList.remove('col-md-6');
                 document.getElementById("11gridDiv").classList.add('col-md-12');
                 
@@ -246,9 +248,10 @@
             var divId = idSlike +  "Div";
             var div = $("#" + divId);
             //div.css("background-color", "white");
-            
+            document.getElementById("current").classList.remove("glow");
             $("#current").attr("id","temp");
             div.find('img').attr("id", "current");
+            document.getElementById("current").classList.add("glow");
         }
         
         vm.odstraniVrsticoCompare = function(){
@@ -265,9 +268,10 @@
             var divId = idSlike +  "Div";
             var div = $("#" + divId);
             //div.css("background-color", "white");
-            
+            document.getElementById("current").classList.remove("glow");
             $("#current").attr("id","temp");
             div.find('img').attr("id", "current");
+            document.getElementById("current").classList.add("glow");
         }
         
         
