@@ -70,22 +70,24 @@
 </div>
 <div class="mainDiv">
   
-  
-  <div class="galerija_container">
-      
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="collapse" data-target="#menu2" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+   <button class="btn btn-secondary dropdown-toggle umiknSe" type="button" data-toggle="collapse" ng-click="vm.pospraviSlikce()" data-target="#menu2" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
                 
                   Prikaži/skrij moje slike
                 
             </button>
+  <div class="galerija_container">
+    <div class="row">
+      <div class="col-md-3" id="majhneSlikce">
+       
             <div id="menu2" class="collapse show">
               <div class="imgs">
                   <!-- tu notri je mreza slik ki se nalozijo iz baze -->
                   
               </div>
             </div>
-            
-            <div class="main-img">
+      </div>
+      <div class="col-md-9" id="glavnaSlikca">
+        <div class="main-img">
               
               <!-- to je velika slika, ki se zamenja ob kliku na sliko v mrezi slik -->
               <div id="imgCompare1" class="col-md-12">
@@ -106,5 +108,11 @@
             
             
             <div role="alert" ng-show="vm.error" class="alert alert-danger">{{ vm.error }}</div>
+      </div>
+    </div>
+      
+            
+            
+            
 
 </div>

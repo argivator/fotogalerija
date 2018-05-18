@@ -86,7 +86,7 @@
                     
                     if (vm.avtorIsLogedIn)
                         restRowContainer.appendChild(rm);
-                    restRowContainer.appendChild(add2nd);
+                    //restRowContainer.appendChild(add2nd);
                     
                     document.getElementsByClassName("imgs")[0].appendChild(imgContainer);
                 }
@@ -194,6 +194,33 @@
             }
         }
         
+        vm.skrito = false;
+        vm.pospraviSlikce = function(){
+            if(!vm.skrito){
+                // prikazi
+                vm.skrito = true;
+                setTimeout(function(){
+                    document.getElementById("glavnaSlikca").classList.remove("col-md-9");
+                document.getElementById("glavnaSlikca").classList.add("col-md-12");
+                }, 350);
+                
+                
+                
+                
+                
+            }else{
+                // skrij
+                vm.skrito = false;
+                setTimeout(function(){
+                     document.getElementById("glavnaSlikca").classList.remove("col-md-12");
+                    document.getElementById("glavnaSlikca").classList.add("col-md-9");
+                }, 10)
+               
+                
+                
+                
+            }
+        }
         
         
         
