@@ -152,63 +152,66 @@
     
         //nalozi sliko v bazo
         vm.upload = function() {
-            if (document.getElementById('inputFile').files.length > 0 && vm.imeSlike) {
-                var f = document.getElementById('inputFile').files[0];
+            if (document.getElementById('inputFile').files.length > 0) {
+                var files = document.getElementById('inputFile').files
+                for (var i=0; i<files.length; i++) {
+                    var f = files[i];
+                    var fd = new FormData();
+                    fd.append('slika', f);
+                    startLoading();
+                    fotogalerijaData.uploadImage(fd, idGalerije, f.name).then(
+                        function success(odgovor) {
+                            var imgContainer = document.createElement("div");
+                            imgContainer.setAttribute("class", "imgContainer");
+                            imgContainer.setAttribute("id", odgovor.data._id);
+                            
+                            
+                            var imgName = document.createElement("span");
+                            imgName.innerHTML = odgovor.data.ime_slike;
+                            
+                            var rm = document.createElement("button");
+                            rm.setAttribute("class", "btn btn-secondary rm");
+                            rm.setAttribute("idSlike", odgovor.data._id);
+                            rm.innerHTML = "X";
+                            
+                            var add2nd = document.createElement("button");
+                            add2nd.setAttribute("class", "btn btn-secondary cmpr");
+                            add2nd.setAttribute("idSlike", odgovor.data._id);
+                            add2nd.setAttribute("ng-disabled", "!vm.compare");
+                            add2nd.innerHTML = "Primerjaj";
+                            
+                            var img = document.createElement("img");
+                            img.setAttribute("src", "data:image/JPEG;base64," + _arrayBufferToBase64(odgovor.data.img.data));
+                            img.addEventListener("click", imgClick);
+                            
+                            var imageRowContainer = document.createElement("div");
+                            imageRowContainer.setAttribute("class", "imageRow");
+                            
+                            var restRowContainer = document.createElement("div");
+                            restRowContainer.setAttribute("class", "restRow");
+                            
+                            imgContainer.appendChild(imageRowContainer);
+                            imageRowContainer.appendChild(img);
+                            imgContainer.appendChild(restRowContainer);
+                            restRowContainer.appendChild(imgName);
+                            
+                            if (vm.avtorIsLogedIn)
+                                restRowContainer.appendChild(rm);
+                            //girestRowContainer.appendChild(add2nd);
+                            
+                            document.getElementsByClassName("imgs")[0].appendChild(imgContainer);
+                            stopLoading();
+                        }
+                    );
 
-                var fd = new FormData();
-                fd.append('slika', f);
-                startLoading();
-                fotogalerijaData.uploadImage(fd, idGalerije, vm.imeSlike).then(
-                    function success(odgovor) {
-                        var imgContainer = document.createElement("div");
-                        imgContainer.setAttribute("class", "imgContainer");
-                        imgContainer.setAttribute("id", odgovor.data._id);
-                        
-                        
-                        var imgName = document.createElement("span");
-                        imgName.innerHTML = odgovor.data.ime_slike;
-                        
-                        var rm = document.createElement("button");
-                        rm.setAttribute("class", "btn btn-secondary rm");
-                        rm.setAttribute("idSlike", odgovor.data._id);
-                        rm.innerHTML = "X";
-                        
-                        var add2nd = document.createElement("button");
-                        add2nd.setAttribute("class", "btn btn-secondary cmpr");
-                        add2nd.setAttribute("idSlike", odgovor.data._id);
-                        add2nd.setAttribute("ng-disabled", "!vm.compare");
-                        add2nd.innerHTML = "Primerjaj";
-                        
-                        var img = document.createElement("img");
-                        img.setAttribute("src", "data:image/JPEG;base64," + _arrayBufferToBase64(odgovor.data.img.data));
-                        img.addEventListener("click", imgClick);
-                        
-                        var imageRowContainer = document.createElement("div");
-                        imageRowContainer.setAttribute("class", "imageRow");
-                        
-                        var restRowContainer = document.createElement("div");
-                        restRowContainer.setAttribute("class", "restRow");
-                        
-                        imgContainer.appendChild(imageRowContainer);
-                        imageRowContainer.appendChild(img);
-                        imgContainer.appendChild(restRowContainer);
-                        restRowContainer.appendChild(imgName);
-                        
-                        if (vm.avtorIsLogedIn)
-                            restRowContainer.appendChild(rm);
-                        //girestRowContainer.appendChild(add2nd);
-                        
-                        document.getElementsByClassName("imgs")[0].appendChild(imgContainer);
-                        stopLoading();
-                    }
-                );
+                }
             }
             vm.openMenu1();
             
         }
         var open = false;
         vm.openMenu1 = function(){
-            console.log("Ok!");
+            //console.log("Ok!");
             $('#menu1').toggleClass('show');
             //document.getElementById("menu1").toggleClass('open');
         }

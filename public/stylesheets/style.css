@@ -255,6 +255,11 @@ body {
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 5px;
   padding-bottom: 10px;
+  max-height: 80vh;
+  overflow: auto;
+}
+.imgs::-webkit-scrollbar { 
+  display: none; 
 }
   
 /* Fade in animation */
@@ -271,4 +276,8 @@ body {
 
 input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 30px white inset;
+}
+
+.dropdown-menu {
+  width: 32vh;
 }
