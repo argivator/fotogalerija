@@ -35,11 +35,11 @@ var dodajSliko = function(req, res, galerija) {
         img: file.data,
         img_type: file.mimetype
     });
-    galerija.save(function(napaka, lokacija) {
+    galerija.save(function(napaka, slika) {
       if (napaka) {
         vrniJsonOdgovor(res, 400, napaka);
       } else {
-        vrniJsonOdgovor(res, 201, null);
+        vrniJsonOdgovor(res, 201, slika.slike[slika.slike.length-1]);
       }
     });
 

@@ -3,19 +3,11 @@
   
   var fotogalerijaData = function($http) {
       
-    var uploadImage = function(data, idGalerije, imeSlike) {
-      var fd = new FormData();
-      fd.append('slika', data);
-      
-      $(".loading").show();
-      
-      $http.post('/api/slika/' + idGalerije +"/"+imeSlike, fd, {
+    var uploadImage = function(fd, idGalerije, imeSlike) {
+      return $http.post('/api/slika/' + idGalerije +"/"+imeSlike, fd, {
           transformRequest: angular.identity,
           headers: {'Content-Type': undefined}
-      }).then(
-        function() {
-            location.reload();
-        });
+      });
     };
     
     var getGalery = function(idGalerije) {
