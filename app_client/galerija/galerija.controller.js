@@ -52,7 +52,13 @@
                     
                     
                     var imgName = document.createElement("span");
-                    imgName.innerHTML = odgovor.data.slike[i].ime_slike;
+                    var imeSlike = odgovor.data.slike[i].ime_slike;
+                    if(imeSlike.length > 15){
+                        imeSlike = imeSlike.substr(0, 14) + "..";
+                    }else{
+                        imeSlike = imeSlike.substr(0, imeSlike.length - 4);
+                    }
+                    imgName.innerHTML = imeSlike;
                     
                     var rm = document.createElement("button");
                     rm.setAttribute("class", "btn btn-secondary rm");
@@ -242,7 +248,7 @@
                 document.getElementById("current").classList.remove("glow");
                 document.getElementById("11gridDiv").classList.remove('col-md-6');
                 document.getElementById("11gridDiv").classList.add('col-md-12');
-                
+                $('.toJeOriginalniKvadratek').attr("id", "current");
                 $("#buttonCompare").html("Vklopi primerjanje");
             }
         }
@@ -285,8 +291,8 @@
                 var gridNum1 = vm.stVrstic + "1grid";
                 var gridNum2 = vm.stVrstic + "2grid";
                 var toAdd = "<div class='novaVrstica row' ng-show='vm.compare'><div class='col-md-6 slikeGridItem' id='" + gridNum1 +"Div' ng-click='izberiTaKvadrat(\"" + gridNum1 + "\")'> \
-                                         <img src='../images/placeholder.png' style='width: 80%'></div>     \
-                            <div class='col-md-6 slikeGridItem' id='" + vm.stVrstic +"2gridDiv' ng-click='izberiTaKvadrat(\"" + gridNum2 + "\")')'><img src='../images/placeholder.png' style='width: 80%'></div></div>";
+                                         <img src='../images/placeholder.png' style='width: 100%'></div>     \
+                            <div class='col-md-6 slikeGridItem' id='" + vm.stVrstic +"2gridDiv' ng-click='izberiTaKvadrat(\"" + gridNum2 + "\")')'><img src='../images/placeholder.png' style='width: 100%'></div></div>";
                 divTmp.append($compile(toAdd)($scope));
                 $scope.$apply();
             }
@@ -305,7 +311,9 @@
         
         vm.odstraniVrsticoCompare = function(){
             vm.stVrstic--;
-            
+            var mainButton = document.getElementsByClassName('toJeOriginalniKvadratek')[0];
+            $("#current").attr("id", "temp");
+            $('.toJeOriginalniKvadratek').attr("id", "current");
             var divTmp = $("#compareDiv");
             $('#compareDiv div.novaVrstica').last().remove();
             

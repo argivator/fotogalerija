@@ -132,7 +132,7 @@ body {
 }
 .slikeGridItem:hover{
   cursor: pointer;
-  background-color: rgba(255,255,255,0.3)
+  /* background-color: rgba(255,255,255,0.3) */
   
 }
 .slikeGridItem {
@@ -162,7 +162,6 @@ body {
 }
 .glow {
   border: 1px solid white;
-  box-shadow: 2px 2px #FFFFFF;
 }
 .loginForm{
   background-color: rgba(0,0,0,0.4);
@@ -241,6 +240,9 @@ body {
   padding-bottom: 10px; */
   width: 100% !important;
   /* background: rgba(0,0,0,0);*/
+}
+#temp {
+  width: 100% !important;
 }
 .rm {
   float: right;
