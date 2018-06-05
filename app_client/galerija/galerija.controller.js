@@ -173,7 +173,13 @@
                             
                             
                             var imgName = document.createElement("span");
-                            imgName.innerHTML = odgovor.data.ime_slike;
+                            var imeSlike = odgovor.data.ime_slike;
+                            if(imeSlike.length > 15){
+                                imeSlike = imeSlike.substr(0, 14) + "..";
+                            }else{
+                                imeSlike = imeSlike.substr(0, imeSlike.length - 4);
+                            }
+                            imgName.innerHTML = imeSlike;
                             
                             var rm = document.createElement("button");
                             rm.setAttribute("class", "btn btn-secondary rm");
